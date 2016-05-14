@@ -1,0 +1,145 @@
+//loading/working animation
+.loader {
+
+		span {
+			@include size(16px, 16px);
+			border-radius: 50%;
+			display: inline-block;
+			position: absolute;
+			left: 50%;
+			margin-left: -10px;
+			animation: 3s infinite linear;
+			
+				&:nth-child(1) {
+					background: #f26e53;
+					animation: loaderFirst 1.2s infinite linear;
+				}
+				
+				&:nth-child(2) {
+					background: #809ac2;
+					z-index: 100;
+				}
+				
+				&:nth-child(3) {
+					background: #7ac274;
+					animation: loaderSecond 1.2s infinite linear;
+				}
+		}
+}
+
+
+//status message styling for errors etc
+.message {
+	background: $offWhite;
+    padding: 4px;
+    margin: 0 0 $spacing 0;
+	
+		&-error {
+			color: $red;
+			@extend .message;
+		}
+
+		&-success {
+			color: $green;
+			@extend .message;
+		}	
+}
+
+//display for action buttons, form controls etc
+.action-box {
+	display: flex;
+	justify-content: flex-end;
+	
+		.button {
+			padding: 8px 16px; //a little thinner
+		}
+	
+		.button.save-details, .button.cancel-edit {
+			display: none; //jquery controls this
+		}
+	
+		.cancel-edit, #save-assessment {
+			margin-right: $spacing;
+		}
+	
+		#cancel-assessment {
+			margin-right: auto;
+			
+				@include breakpoint(mobile) {
+					margin-right: 0;
+				}
+		}
+	
+		.icon::before {
+			margin-right: .2rem;
+		}
+	
+		&.fixed {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background: rgba(0,0,0,0.7);
+			padding: 8px;
+		}
+}
+
+@include breakpoint(mobile) {
+	
+		.assessment .action-box {
+			justify-content: space-between;
+			flex-direction: column-reverse;
+			
+				button:nth-child(n+2) {
+					margin-bottom: $spacing;
+				}
+		}
+	
+		.action-box #save-assessment {
+			margin-right: 0;
+		}
+}
+
+//content editable styles for personal information and supervisor details
+#personal, #supervisors {
+	position: relative;
+	margin-bottom: $spacing;
+	
+		.row {
+			background: $grey;
+			margin-bottom: $spacing - .2;
+			padding: $sidePadding - 8;
+			transition: all .2s;
+
+				span {
+					display: inline-flex;
+				}
+
+				span:first-of-type {
+					font-weight: bold;
+					width: 120px;
+				}
+
+				&.editing {
+					//here for editing style
+					background: rgba($secondBlue, .3);
+					box-shadow: -2px 0px 0px $secondBlue;
+				}
+		}
+
+		[contenteditable="true"] {
+			box-shadow: 0px 2px 0px $secondBlue;
+			background: $offWhite;
+			padding-right: 2%;
+
+
+				&:hover {
+					box-shadow: 0px 2px 0px $firstBlue;
+				}
+
+				&:focus {
+					box-shadow: 0px 2px 0px $green;
+					outline: none;
+				}
+		}
+}

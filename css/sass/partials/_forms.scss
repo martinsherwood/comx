@@ -1,0 +1,135 @@
+form {
+	padding-bottom: $spacing;
+	display: block;
+	position: relative;
+}
+
+.no-name, .no-email, .no-text {
+	display: none;
+    padding-bottom: $spacing;
+}
+
+.no-name, .no-email, .no-text {
+    width: 100%;
+    //text-align: center;
+}
+
+.error {
+    font-size: 0.9em;
+    color: $red;
+}
+
+.sent {
+	font-size: $fontSize + .1;
+}
+
+label, legend {
+	display: block;
+	color: rgba($black, .8);
+	text-transform: uppercase;
+	font-size: $fontSize - .1;
+	margin-bottom: $spacing - .6;
+    font-weight: 700;
+	
+		span {
+			font-size: $fontSize - .2;
+			margin-left: 4px;
+		}
+}
+
+input[type="text"], input[type="email"], input[type="date"], input[type="password"], input[type="file"], select, textarea {
+	width: 100%;
+	display: block;
+	border: 2px solid darken($grey, 14%);
+	background: $white;
+	margin-bottom: $spacing;
+	outline: none;
+	padding: 15px 10px 15px 10px;
+	transition: all $standardTrans;
+	color: $black;
+	
+		&:disabled {
+			@extend %no-select;
+			color: $black;
+			-webkit-text-fill-color: $black; //ios weirdness
+			-webkit-opacity: 1; //more ios weirdness
+			border-style: dashed; //might look weird
+			cursor: not-allowed;
+		}
+		
+		&:hover {
+			background: #f1f1f1;
+			border-color: #e1e1e1;
+		}
+		
+		&:focus {
+			background: #f1f1f1;
+			border-color: $blue;
+		}
+		
+		//html5 psuedo selectors if used
+		/*&:required {
+			border-color: $red;
+		}*/
+		
+		/*&:valid {
+			border-color: $blue;
+		}*/
+
+		/*&:invalid {
+			border-color: $red;
+		}*/
+}
+
+textarea {
+	resize: vertical;
+}
+
+fieldset {
+    margin-bottom: $spacing;
+}
+
+input[type="submit"], button, .button {
+	border-width: 0;
+	background: $blue;
+	color: $white;
+	text-transform: uppercase;
+	padding: 12px 24px;
+	font-size: 14px;
+	line-height: normal;
+	outline: none;
+	outline: 0px;
+	letter-spacing: 1px;
+	transition: all $standardTrans;
+	border-radius: 2px;
+	cursor: pointer;
+	
+		&.green {
+			background: $green;
+				
+				&:hover {
+					background: darken($green, 10%);
+				}
+		}
+	
+		&:hover {
+			background: darken($blue, 20%);
+		}
+	
+		&:active {
+			box-shadow: none;
+		}
+		
+		&.cancel {
+			background: darken($grey, 10%);
+			color: $black;
+			
+				&:hover {
+					background: $grey;
+				}
+		}
+	
+		&.thinner {
+			padding: 8px 16px;
+		}
+}

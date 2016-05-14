@@ -1,0 +1,196 @@
+#page #top-bar {
+    background: $blue;
+    top: 0;
+}
+
+#top-bar {
+	//@include size(100%, 74px);
+    width: 100%;
+    position: fixed;
+    top: $sidePadding;
+    left: 0;
+    color: $white;
+    cursor: default;
+    z-index: 99;
+    animation: none;
+	font-family: $robotoCond;
+	font-weight: 300;
+        
+        main#home &.reveal {
+			top: 0;
+            background: $blue;
+            animation: revealHeader $standardTrans;
+        }
+		
+		.header {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+            padding: $spacing;
+			
+				.logo {
+					width: 140px;
+					animation: none;
+					
+						a.logo-link:hover {
+							border-bottom: none;
+						}
+                    
+                        @include breakpoint(tablet) {
+                            display: none;
+                        }
+				}
+				
+				#main-navigation {
+					position: relative;
+					
+						span {
+							padding: 0 $spacing;
+						}
+
+						a {
+							position: relative;
+							color: $white;
+							font-size: $fontSize + .1;
+							letter-spacing: 1px;
+							text-transform: uppercase;
+							
+								&::before {
+									content: "";
+									position: absolute;
+									left: 0;
+									bottom: -4px;
+									width: 100%;
+									height: 2px;
+									background: $white;
+									transform: scaleX(0);
+									transition: transform $standardTrans ease;
+								}
+							
+								&::after {
+									content: "";
+									position: absolute;
+									transition: transform $standardTrans ease;
+								}
+							
+								&:hover {
+									border-bottom: none;
+								}
+							
+								&:hover::before {
+									transform: scaleX(1);
+								}
+						}
+                    
+                        @include breakpoint(tablet) {
+                            display: none;
+                        }
+				}
+            
+                @include breakpoint(tablet) {
+                    display: none;
+                }
+		}
+	
+		@include breakpoint(tablet) {
+			//margin: 10px 0;
+		}
+}
+
+#mobile-panel, #nav-btn, .mobile-nav {
+	display: none;
+}
+
+@include breakpoint(tablet) {
+		#mobile-panel {
+			@include size(200px, 100%);
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+            z-index: 101;
+			background: $blue;
+			background: #454544;
+			box-shadow: inset -10px 0 12px -9px rgba(0, 0, 0, 0.5);
+			font-family: $robotoCond;
+			font-weight: 300;
+			font-size: $fontSize + .1;
+			backface-visibility: hidden;
+			transform: translateX(-200px);
+			transition: transform $standardTrans ease;
+			overflow-y: auto;
+			
+				&.nav-visible {
+					transform: translateX(0);
+				}
+				
+				a.link {
+					border-bottom: 0;
+					border-top: 1px solid $white;
+					display: block;
+					color: $white;
+					padding: $spacing;
+					text-decoration: none;
+					-webkit-tap-highlight-color: rgba(0,0,0,0);
+					
+						&:first-of-type {
+							border-top: none;
+						}
+				}
+		}
+	
+		.mobile-nav-btn {
+            @include size(54px, 40px);
+			display: block;
+            position: relative;
+			cursor: pointer;
+            margin: 10px 0;
+            transition: $standardTrans;
+			
+				&.nav-open {
+					transform: translateX(200px);
+				}
+            
+                .menu-bar {
+                    backface-visibility: hidden;
+                    position: absolute;
+                    left: 0;
+                    border-top: 2px solid $white;
+                    width: 100%;
+                    transition: $standardTrans;
+                }
+
+                .menu-top {
+                    top: 0;
+                }
+
+                .menu-middle {
+                    top: 18px;
+                }
+
+                .menu-bottom {
+                    top: 36px;
+                }
+
+                .menu-top-click {
+                    backface-visibility: hidden;
+                    top: 15px;
+                    transform: rotate(50deg);
+                    transition: $standardTrans 0.50s;
+                }
+
+                .menu-middle-click {
+                    opacity: 0;
+                }
+
+                .menu-bottom-click {
+                    backface-visibility: hidden;
+                    top: 15px;
+                    transform: rotate(-410deg);
+                    transition: $standardTrans 0.50s;
+                }
+            
+		}
+}

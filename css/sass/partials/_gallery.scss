@@ -1,0 +1,19 @@
+//gallery styles
+
+#gallery {
+	display: flex;
+	flex-flow: row wrap;
+	
+		div {
+			flex: auto; 
+			width: 200px; 
+			margin: .5vw;
+			cursor: pointer;
+			//border: 6px solid $grey;
+			
+				img {
+					width: 100%; 
+					height: auto;
+				}
+		}
+}

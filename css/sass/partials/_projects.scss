@@ -1,0 +1,218 @@
+#proj-intro {
+	padding-bottom: $bigSpace - 30;
+	margin-bottom: $bigSpace - 30;
+	border-bottom: 1px solid darken($grey, 14%);
+}
+
+//project list page
+#project-container { //holds all projects on projects.php
+    display: flex;
+    flex-direction: column;
+
+        .project {
+            width: 100%;
+			display: flex;
+			align-items: flex-start;
+			//flex-direction: column;
+			padding-bottom: $bigSpace;
+            margin-bottom: $bigSpace;
+            border-bottom: 1px solid darken($grey, 14%);
+			
+				&:last-of-type {
+					padding-bottom: 0;
+            		margin-bottom: 0;
+            		border-bottom: none;
+				}
+			
+				@include breakpoint(mobile) {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+			
+				&-logo {
+					width: 220px;
+				}
+			
+				> div {
+					display: flex;
+					flex-direction: column;
+					margin-left: $spacing;
+					
+						@include breakpoint(mobile) {
+							margin-left: 0;
+						}
+				}
+			
+				.project-title {
+					margin: 0;
+				}
+			
+				.project-cats {
+					margin-bottom: $spacing;
+				}
+				
+				//alternate, but adjust echo statements in the PHP too
+				/*&-details {
+					display: flex;
+					align-items: center;
+
+						@include breakpoint(mobile) {
+							align-items: flex-start;
+							flex-direction: column;
+						}
+
+						.project-title {
+							margin: 0;
+						}
+
+						div.project-cats {
+							margin-left: auto;
+
+								@include breakpoint(mobile) {
+									margin-left: 0;	
+								}
+						}
+				}*/
+			
+                &-desc {
+					margin-bottom: $spacing;
+                }
+            
+                &-view {
+                    width: 180px;
+                    align-self: flex-start;
+                    color: $white;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    
+                        i {
+                            font-size: 2rem;
+                        }
+                    
+                        &:hover {
+                            border-bottom: none;
+                        }
+                }
+        }
+}
+
+//individual project page
+#project-information { //holds a project on viewproject.php
+	position: relative;
+	margin-top: $spacing;
+	
+		.proj-top {
+			display: flex;
+    		align-items: flex-start;
+			
+				@include breakpoint(mobile) {
+					flex-direction: column;
+				}
+				
+				> div {
+					align-content: flex-start;
+					
+						@include breakpoint(mobile) {
+							margin-bottom: $spacing;
+						}
+				}
+			
+				h1:first-of-type {
+					margin-bottom: 0;
+				}
+
+				img:first-of-type {
+					margin-left: auto;
+					width: 220px;
+					
+						@include breakpoint(mobile) {
+							margin-left: 0;
+						}
+				}
+			
+				ul.proj-social {
+					display: flex;
+					list-style: none;
+					margin: $spacing 0;
+					
+						li {
+							margin: 0 $spacing 0 0;
+							
+								&:last-of-type {
+									margin-right: 0;
+								}
+						}
+					
+						li a {
+							color: darken($grey, 50%);
+							font-size: 2rem;
+							transition: opacity $standardTrans;
+					
+								&:hover {
+									opacity: .8;
+								}
+						}
+				}
+		}
+	
+		p#short-desc {
+			margin-top: $spacing;
+			padding-bottom: $spacing;
+			border-bottom: 1px solid darken($grey, 14%);
+		}
+	
+		.proj-content {
+			position: relative;
+			margin: $spacing 0;
+			padding-bottom: $spacing;
+			border-bottom: 1px solid darken($grey, 14%);
+			
+				> p {
+					margin: 0
+				}
+		}
+	
+		#the-team {
+			display: flex;
+			flex-direction: column;
+			
+				.member {
+					display: flex;
+					flex-direction: row; //probably column for mobile
+					align-items: flex-start;
+					
+						@include breakpoint(mobile) {
+							flex-direction: column;
+						}
+					
+						.photo {
+							width: 220px;
+							
+								@include breakpoint(mobile) {
+									margin-bottom: $spacing;
+								}
+						}
+					
+						div:first-of-type {
+							margin-left: $spacing;
+							
+								h3 {
+									margin-bottom: 0;
+								}
+							
+								.skills {
+									display: block;
+									margin-bottom: $spacing;
+								}
+
+								@include breakpoint(mobile) {
+									margin-left: 0;
+								}
+						}
+				}
+		}
+		
+}
+
+

@@ -1,0 +1,181 @@
+#banner {
+    height: 100vh;
+    color: $white;
+    
+        h2 {
+            font-size: 3.5rem;
+            line-height: 1em;
+            margin: 0 0 0.5em 0;
+            padding: 0;
+        }
+		
+		ul.course-reel, ul.course-reel::after {
+			@include size(100%);
+			position: relative;
+			z-index: 0;
+			overflow-x: hidden;
+			@extend %reset-box;
+		}
+	
+		ul.course-reel li {
+			margin: 0;
+		}
+		
+		//this holds the course colours or images
+		ul.course-reel li span {
+			@include size(100%);
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			color: transparent;
+			opacity: 0;
+			z-index: 0;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			animation: courseReelAnimation 36s linear infinite 0s;
+			
+				@include breakpoint(mobile) {
+					animation: none;
+				}
+		}
+	
+		.comx-is {
+			position: absolute;
+			top: 600px;
+			color: $white;
+		}
+	
+		//this holds the course cta words
+		ul.course-reel li div {
+			width: 100%;
+			z-index: 1000;
+			position: absolute;
+            bottom: 8%;
+            left: 20%;
+			opacity: 0;
+			color: $white;
+			animation: courseReelTitleAnimation 36s linear infinite 0s;
+			
+				@include breakpoint(mobile) {
+					left: 4%;
+				}
+			
+				&::before {
+					content: "COMX is";
+					font-size: 1.6rem;
+                    line-height: 0;
+				}
+		}
+		
+		//define the colours for each course here
+		//this code is unoptimised
+		ul.course-reel li:nth-child(1) span {
+			background: $green url("../img/courses/web.svg"); //web
+			background-position: 50% 40%;
+            background-size: 60% 60%;
+			background-repeat: no-repeat;
+		}
+		
+		ul.course-reel li:nth-child(2) span { 
+			background: $purple url("../img/courses/games.svg"); //games
+			background-position: 50% 40%;
+            background-size: 60% 60%;
+			background-repeat: no-repeat;
+            animation-delay: 6s;
+		}
+		
+		ul.course-reel li:nth-child(3) span { 
+			background: $blue url("../img/courses/product-design.svg"); //product design
+			background-position: 50% 40%;
+            background-size: 60% 60%;
+			background-repeat: no-repeat;
+            animation-delay: 12s;
+		}
+		
+		ul.course-reel li:nth-child(4) span { 
+			background: $orange url("../img/courses/it.svg"); //it
+			background-position: 50% 40%;
+            background-size: 60% 60%;
+			background-repeat: no-repeat;
+            animation-delay: 18s;
+		}
+		
+		ul.course-reel li:nth-child(5) span { 
+			background: $teal url("../img/courses/computing.svg"); //computing
+			background-position: 50% 40%;
+            background-size: 60% 60%;
+			background-repeat: no-repeat;
+            animation-delay: 24s;
+		}
+		
+		ul.course-reel li:nth-child(6) span { 
+			background: $red url("../img/courses/forensics.svg"); //forensics
+			background-position: 50% 40%;
+            background-size: 60% 60%;
+			background-repeat: no-repeat;
+            animation-delay: 30s;
+		}
+		
+		ul.course-reel li {
+				//timings
+				&:nth-child(2) div { 
+					animation-delay: 6s;
+				}
+				
+				&:nth-child(3) div { 
+					animation-delay: 12s;
+				}
+				
+				&:nth-child(4) div { 
+					animation-delay: 18s;
+				}
+				
+				&:nth-child(5) div {
+					animation-delay: 24s;
+				}
+				
+				&:nth-child(6) div { 
+					animation-delay: 30s;
+				}
+			
+				h3 {
+					font-size: 6rem;
+					margin-bottom: 0;
+                    line-height: 1;
+                    
+                        @include breakpoint(tablet) {
+                            font-size: 3rem;
+                        }
+                    
+                        @include breakpoint(mobile) {
+                            font-size: 2rem;
+                        }
+				}
+		}
+	
+		.no-cssanimations ul.course-reel li span {
+			opacity: 1;
+		}
+	
+		@include breakpoint(mobile) {
+			height: 34vh; //change to whatever you like, 14-16vh might work better
+			background: $blue; //or whichever you want, blue is main brand colour
+		}
+    
+        #go-down {
+            @include size(50px);
+            position: absolute;
+            color: $white;
+            font-size: 4rem;
+            bottom: 1rem;
+            left: 50%;
+            cursor: pointer;
+            animation-name: goDownPulse;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            
+				@include breakpoint(mobile) {
+					display: none;
+				}
+        }
+}

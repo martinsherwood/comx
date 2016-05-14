@@ -1,0 +1,184 @@
+#intro {
+	position: relative;
+	
+		p {
+			margin-bottom: $spacing + 1;
+		}
+	
+		.video {
+				iframe {
+					@include size(100%, 450px);
+
+						@include breakpoint(tablet) {
+							height: 300px;
+						}
+
+						@include breakpoint(mobile) {
+							height: 180px;
+						}
+				}
+		}
+}
+
+#showcase {
+    position: relative;
+	
+        .sc-items {
+			display: inline-flex;
+			flex-direction: row;
+            //@extend %clearfix;
+			
+				@include breakpoint(mobile) {
+                    flex-direction: column;
+                }
+        }
+        
+        .showcase-item {
+            width: 33.333%;
+			
+				&:nth-of-type(2) {
+					margin-right: $spacing;
+					margin-left: $spacing;
+					
+						@include breakpoint(mobile) {
+							margin: $spacing 0 $spacing 0;
+						}
+				}
+            
+                h3 {
+                    text-transform: uppercase;
+                    color: $white;
+                }
+            
+                @include breakpoint(mobile) {
+                    width: 100%;
+                }
+        }
+    
+        .showcase-thumb img {
+            width: 100%;
+        }
+    
+        .showcase-item .showcase-thumb {
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .showcase-item .showcase-thumb .showcase-overlay {
+            display: flex;
+            flex-direction: column;
+            //align-items: center;
+            justify-content: center;
+            background-color: rgba($black, .7);
+            position: absolute;
+			@include size(100%, 60px);
+            left: 0;
+			bottom: 0;
+            color: $white;
+			transform: translateY(60px);
+            transition: all 400ms ease-in-out;
+			
+				h4 {
+					padding-left: 10px;
+					padding-right: 10px;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;
+					margin: 0;
+				}
+                
+                a.showcase-link {
+					color: $white;
+					transition: opacity $standardTrans;
+					
+						&:hover {
+							border-bottom: none;
+							opacity: .9;
+						}
+                }
+        }
+    
+        .showcase-item .showcase-thumb:hover .showcase-overlay {
+			transform: translateY(0);
+        }
+}
+
+#location-map {
+    position: relative;
+    
+        .map-wrapper {
+            height: 450px;
+            margin-bottom: $spacing;
+        }
+    
+        #map-canvas {
+            width: 100%;
+            height: 450px;
+            border: 10px solid $grey;
+            background: none !important; //remove google style
+        }
+	
+		span.directions {
+			margin-bottom: $spacing;
+		}
+	
+		span.directions,  span.time {
+            display: block;
+			font-size: $fontSize + .5;
+			font-family: $robotoCond;
+			font-weight: 300;
+			
+				i {
+					margin-right: 3px;
+				}
+		}
+}
+
+#partnerships {
+	position: relative;
+	
+		.partners {
+			display: flex;
+			flex-direction: row;
+			//flex-wrap: wrap;
+            align-items: center;
+            
+                @include breakpoint(tablet) {
+                    flex-direction: column;
+                    //align-items: flex-start;
+                }
+            
+                @include breakpoint(mobile) {
+                    align-items: flex-start;
+                }
+			
+				div {
+                    width: 25%;
+                    display: flex;
+                    align-items: center;
+					margin: 0 $spacing + 1;
+                    //background: $grey;
+                    
+                        &:nth-of-type(1) {
+                            margin-left: 0;
+                        }
+                    
+                        &:nth-of-type(4) {
+                            margin-right: 0;
+                        }
+					
+						@include breakpoint(tablet) {
+							width: 50%;
+                            margin: $spacing + 1 0;
+						}
+					
+						img {
+                            width: 100%;
+                            
+                                @include breakpoint(tablet) {
+                                    width: 200px;
+                                }
+						}
+				}
+		}
+}

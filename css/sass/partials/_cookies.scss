@@ -1,0 +1,35 @@
+#cookies { 
+    width: 100%;
+	position: fixed;
+	z-index: 9999;
+	margin: 0;
+	padding: 0.2em 10%;
+    background: hsla(0, 0%, 30%, 1);
+	text-align: center;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
+	letter-spacing: 1px;
+	border-bottom: 1px solid $blue;
+}
+ 
+#cookies p {
+    color: hsla(60, 100%, 99%, 1);
+	margin: 4px;
+	z-index: 9;
+}
+
+#cookies a:hover {
+	background: none;
+	text-decoration: underline;
+}
+
+.cookie-accept {
+	margin-left: 10px;
+	cursor: pointer;
+	color: hsla(60, 100%, 99%, 1);
+	transition: all $standardTrans ease-in-out;
+}
+
+.cookie-accept:hover {
+	opacity: 0.80;
+	transition: all $standardTrans ease-in-out;
+}

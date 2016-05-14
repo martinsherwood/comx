@@ -1,0 +1,58 @@
+.inner-wrap {
+	padding-right: $sidePadding;
+	padding-left: $sidePadding;
+}
+
+#page-content { //might not need
+    display: flex;
+    //flex-direction: column;
+    //flex: 1 0 auto;
+    
+        .content > h1 {
+            margin-top: $spacing;
+        }
+	
+		/*.content > p {
+				padding-bottom: $bigSpace - 30;
+				margin-bottom: $bigSpace - 30;
+				border-bottom: 1px solid darken($grey, 14%);
+		}*/
+}
+
+.content-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: rgba($black, .8);
+    background: $white;
+	padding: $bigSpace $spacing $bigSpace $spacing;
+    margin: $spacing 0 $spacing 0;
+    
+		&:last-of-type {
+			//margin-bottom: 0;
+		}
+	
+        &.centre {
+            justify-content: center;
+        }
+    
+        &.grey {
+            background: $grey;
+        }
+        
+        .content {
+            width: 60%;
+            
+                /*p:first-of-type {
+                    margin-bottom: $spacing;
+                }*/
+            
+                @include breakpoint(tablet) {
+                    width: 90%;
+                }
+            
+                @include breakpoint(mobile) {
+                    width: 100%;
+                }
+        }
+}
