@@ -20,7 +20,7 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-		<!--Design and developed by Martin Sherwood, Karl Martin and Tim Clough-->
+		<!--Developed by Martin Sherwood-->
 		<?php include_once ("includes/cookies.php"); ?>
 		
 		<main id="home" class="page-wrapper">
